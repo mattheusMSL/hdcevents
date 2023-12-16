@@ -11,31 +11,27 @@ class EventController extends Controller
 
         $events = Event::all();
 
-        return view('welcome',
-        [
-         'events' => $events
-        ]);
+        return view('welcome', ['events' => $events]);
     }
 
     public function create(){
         return view ('events.create');
     }
 
-    public function login()
-    {
-        return view('events.login');
-    }
+    // public function login() {
+    //     return view('events.login');
+    // }
 
     public function store(Request $request){
 
         $event = new Event;
-
         $event->title = $request->title;
         $event->city = $request->city;
         $event->private = $request->private;
         $event->description = $request->description;
 
         // image upload 
+        
         if($request->hasfile('image') && $request->file('image')->isValid()){
 
             $requestImage = $request->image;
@@ -52,6 +48,14 @@ class EventController extends Controller
         $event->save();
          
         return redirect('/')->with('msg', 'Evento Criado com sucesso!');
+
+    }
+
+    public function show($id){
+
+        $event = Event::findOrFail($id);
+
+        return view ('events.show', ['event' => $event]);
 
     }
 }
