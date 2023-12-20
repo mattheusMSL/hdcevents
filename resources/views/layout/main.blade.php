@@ -31,6 +31,9 @@
         <a href="/" class="navbar-brand">
           <img src="/img/img-event.jpeg" alt="hdcevents logo">
         </a>
+        <section> 
+          <h1 class="navbar-logo">HDCEVENTS</h1>
+        </section> 
         <ul class="navbar-nav">
           <li class="nav-item">
            <a href="/" class="nav-link">Eventos</a>

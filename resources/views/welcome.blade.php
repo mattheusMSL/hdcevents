@@ -13,15 +13,18 @@
     <div id="cards-container" class="row">
         @foreach($events as $event)
           <div class="card col-md-3">
-            <img src="/img/events/{{ $event->image }}" alt=" {{ $event->title }}">
+            <img  src="/img/events/{{ $event->image }}" alt=" {{ $event->title }}">
             <div class="card-body">
-                <div class="card-date">11/12/23 </div>
+                <div class="card-date">{{ date('d/m/y', strtotime($event->date)) }} </div>
                 <div class="card-title">{{ $event->title }}</div>
-                <div class="card-participant.s">X participantes</div>
+                <div class="card-participants">X participantes</div>
                 <a href="/events/{{ $event->id }}" class="btn btn-primary">Saber mais</a>
             </div>
           </div>
         @endforeach 
+        @if(count($events) == 0)
+          <p>Não há eventos disponíveis </p>
+        @endif
     </div>
 </div>
 @endsection
