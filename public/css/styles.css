@@ -232,6 +232,17 @@ section{
 .dashboard-events-container th{
   width: 25%;
 }
+
+.dashboard-events-container form{
+  display: inline;
+}
+
+/* Edit page */
+
+.img-preview{
+  width:100px;
+  margin-top:30px;
+}
 /* Footer  */
 
 footer{
